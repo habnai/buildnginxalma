@@ -1,0 +1,16 @@
+- name: Replace nginx.conf
+  template:
+    src: templates/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Reload NGINX
+- name: Create vhost.conf
+  templates:
+    src: templates/vhost-exmple.conf
+      # Your nginx configuration here
+    dest: /etc/nginx/sites-enabled
+  notify: Reload NGINX
+handlers:
+  - name: Reload NGINX
+    systemd:
+      name: nginx
+      state: reloaded

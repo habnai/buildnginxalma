@@ -1,0 +1,5 @@
+---
+# all non secret vars
+destination: /home/user # should be an existing one from above
+
+
