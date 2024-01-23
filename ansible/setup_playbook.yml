@@ -9,15 +9,9 @@
 
     vars_files:
         - vars/main_vars.yml
-    handlers:
-    - name: Start and enable docker
-      systemd:
-        name: docker
-        state: started
-        enabled: yes
 
     tasks:
-    - import_tasks: tasks/setupZFStask.yml
-    - import_tasks: tasks/setupUsersTask.yml
-    - import_tasks: tasks/setupSambaTask.yml
-    - import_tasks: tasks/setupDocker.yml
+    - import_tasks: tasks/buildnginx.yml
+    - import_tasks: tasks/configfile.yml
+
+
